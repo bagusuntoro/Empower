@@ -4,48 +4,21 @@ import { Layout } from './components/Layout'
 import { AuthContext } from './context/AuthContext'
 import { Login } from './components/Login'
 
-const Pricing = () => {
+const Head = () => {
   const auth = useContext(AuthContext)
   console.log(auth)
   return (
-    <h2>{auth.email ? 'Rp. 5000' : '-'}</h2>
+    <h1>{auth.email ? 'Login' : 'Wait...'}</h1>
   )
 }
 
 
 function App() {
-  const [input, setInput] = useState('')
-  const inputRef = useRef('')
-
-  console.log('rendered ', input)
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Send :', inputRef.current.value)
-  }
-
-  useEffect(() => {
-    inputRef.current.focus()
-  }, [])
-
   return (
     <Layout>
       <div className="App">
-        <h1>Login</h1>
-
+        <Head />
         <Login />
-
-
-
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input type="text" ref={inputRef} />
-          </div>
-          <br />
-          <button type='submit'>Send</button>
-        </form>
-        
-        {/* <button onClick={()=> inputRef.current.focus()}>Focus</button> */}
-        <Pricing />
       </div>
     </Layout>
   )
