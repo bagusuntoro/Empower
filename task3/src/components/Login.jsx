@@ -34,7 +34,7 @@ export const Login = () => {
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                     <Button type="primary" htmlType="submit">
-                        {auth.email ? 'Submit !' : 'Wait...'}
+                        {auth.email ? 'Login' : 'Wait...'}
                     </Button>
                 </Form.Item>
             </form>
