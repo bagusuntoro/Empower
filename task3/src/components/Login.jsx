@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { Button, Form } from 'antd';
+import { Button, Form, Input } from 'antd';
 
 export const Login = () => {
     const auth = useContext(AuthContext)
@@ -9,27 +9,28 @@ export const Login = () => {
     const inputRef = useRef('')
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('send :' + inputRef.current.value)
-        alert('send :' + inputRef.current.value)
+        // e.preventDefault()
+        console.log(e)
+        // alert('send :' + inputRef.current.value)
     }
+
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <Form onFinish={handleSubmit}>
                 <Form.Item
                     label="Username"
                     name="username"
                     rules={[{ required: true, message: 'Please input your username!' }]}
                 >
-                    <input type="text" ref={inputRef} />
+                    <Input type="text" />
                 </Form.Item>
                 <Form.Item
                     label="Password"
                     name="password"
                     rules={[{ required: true, message: 'Please input your password!' }]}
                 >
-                    <input type="password" />
+                    <Input type="password" />
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
@@ -37,7 +38,7 @@ export const Login = () => {
                         {auth.email ? 'Login' : 'Wait...'}
                     </Button>
                 </Form.Item>
-            </form>
+            </Form>
         </>
     )
 }

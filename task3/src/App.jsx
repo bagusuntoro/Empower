@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef, useContext } from 'react'
 import './App.css'
-import { Layout } from './components/Layout'
 import { AuthContext } from './context/AuthContext'
+// components
+import { Layout } from './components/Layout'
+import { TopNavigation } from './components/header/TopNavigation'
 import { Login } from './components/Login'
 
 const Head = () => {
@@ -16,9 +18,12 @@ const Head = () => {
 function App() {
   return (
     <Layout>
+      <TopNavigation />
       <div className="App">
         <Head />
-        <Login />
+        <div className="templateForm">
+          <Login />
+        </div>
       </div>
     </Layout>
   )
