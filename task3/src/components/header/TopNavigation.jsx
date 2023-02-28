@@ -1,17 +1,10 @@
-
-
 export const TopNavigation = () => {
   return (
-    <>
-      <div className="navbar">
-        <div className="home">
-          <a href="#">Home</a>
-        </div>
-        <div className="LogEr">
-          <a href="#">Login</a>
-          <a href="#">Register</a>
-        </div>
-      </div>
-    </>
+    <ul>
+      <li><a href="">Home</a></li>
+      <li className="register"><a className="active" href="#about">Register</a></li>
+      <li className="login"><a className="active" href="#about">Login</a></li>
+    </ul>
+
   )
 }
