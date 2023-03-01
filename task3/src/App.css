@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
 }
 
@@ -28,6 +28,7 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 li a:hover:not(.active) {
@@ -46,36 +47,23 @@ li a:hover:not(.active) {
 
 
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-.templateForm {
-  width: 600px;
-  height: 300px;
+.template {
+  width: 1000px;
+  height: 350px;
   background-color: #fff;
+}
+
+.form {
+  padding-top: 30px;
+  width: 300px;
+  margin: auto;
 }
 
 .navbar {
   display: flex;
 }
 
-.navbar>.home {}
 
-.navbar>.LogEr {
-  float: right;
-}
 
 @keyframes logo-spin {
   from {
@@ -91,12 +79,4 @@ li a:hover:not(.active) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
