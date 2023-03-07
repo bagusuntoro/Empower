@@ -4,18 +4,20 @@ import { Button, Form, Input } from 'antd';
 
 // components
 import { TopNavigation } from '../components/header/TopNavigation'
+import { supabase } from "../configs/supabase";
+import { useNavigate } from "react-router";
 
 export const Register = () => {
   const auth = useContext(AuthContext)
 
-  const [input, setInput] = useState('')
-  const inputRef = useRef('')
+  // const [input, setInput] = useState('')
+  // const inputRef = useRef('')
 
-  const handleSubmit = (e) => {
-    // e.preventDefault()
-    console.log(e)
-    // alert('send :' + inputRef.current.value)
-  }
+  // const handleSubmit = (e) => {
+  //   // e.preventDefault()
+  //   console.log(e)
+  //   // alert('send :' + inputRef.current.value)
+  // }
 
 
   const Head = () => {
@@ -26,6 +28,22 @@ export const Register = () => {
     )
   }
 
+  const navigate = useNavigate()
+
+  const onFinish = async (value) => {
+    const { data, error } = await supabase.auth.signUp({
+      email: value?.email,
+      password: value.password
+    })
+
+    if (data) {
+      navigate('/login')
+    }
+  }
+
+
+
+
 
   return (
     <>
@@ -35,7 +53,7 @@ export const Register = () => {
         <div className="template">
           <div className="form">
             <Head />
-            <Form onFinish={handleSubmit}>
+            <Form onFinish={onFinish}>
               <Form.Item
                 label="Email"
                 name="email"
@@ -44,13 +62,13 @@ export const Register = () => {
                 <Input type="email" />
               </Form.Item>
 
-              <Form.Item
+              {/* <Form.Item
                 label="Username"
                 name="username"
                 rules={[{ required: true, message: 'Please input your username!' }]}
               >
                 <Input type="text" />
-              </Form.Item>
+              </Form.Item> */}
 
               <Form.Item
                 label="Password"
