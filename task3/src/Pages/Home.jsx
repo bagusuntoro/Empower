@@ -7,38 +7,44 @@ import { Table } from 'antd'
 import { TopNavigation } from '../components/header/TopNavigation'
 
 
-export const Home = () => {
-  const navigate = useNavigate()
-  const [kuis, setKuis] = useState([])
+export const Home = ({handleAnswer, data:{question, correct_answer, answers}}) => {
+  const [clickedButton, setClickedButton] = useState(null);
 
-  const getKuis = async () => {
-    try {
-      let response = await axios.get('https://opentdb.com/api.php?amount=7')
-      setKuis(response.data.results)
-    } catch (e) {
-      console.log(e.message);
-    }
+  const handleButtonClick = (answer) => {
+    setClickedButton(answer);
+    handleAnswer(answer);
   }
 
   useEffect(() => {
-    getKuis();
-  }, [])
-
-  const columns = [
-    {
-      title: 'Quiz Question',
-      dataIndex: 'question',
-      key: 'question',
-    },
-  ];
+    const buttonElements = document.getElementsByClassName('normal-button');
+    for(let i = 0; i < buttonElements.length; i++) {
+      if(buttonElements[i].innerHTML === clickedButton) {
+        buttonElements[i].classList.add('clicked-button');
+      } else {
+        buttonElements[i].classList.remove('clicked-button');
+      }
+    }
+  }, [clickedButton]);
 
   return (
     <>
       <TopNavigation />
       <div className="App">
         <div className="template">
-          <h2>HOMEPAGE</h2>
-          <Table dataSource={kuis} columns={columns} />
+          <h1>Home Page</h1>
+
+          <div className='questionClass'>
+            <h2 dangerouslySetInnerHTML={{__html:question}}/>
+          </div>
+          <div className='button-overall'>
+            {answers.map((answer,idx) => {
+              return(
+                <button key={idx} className={`normal-button${answer === clickedButton ? ' clicked-button' : ''}`}
+                onClick={() => handleButtonClick(answer)}
+                dangerouslySetInnerHTML={{__html:answer}}/>
+              )
+            })}
+          </div>
         </div>
       </div>
     </>
