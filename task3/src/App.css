@@ -50,7 +50,7 @@ li a:hover:not(.active) {
 .template {
   margin-top: -20px;
   width: 1000px;
-  height: 350px;
+  height: 500px;
   background-color: #fff;
 }
 
@@ -85,4 +85,59 @@ li a:hover:not(.active) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
+}
+
+
+
+
+
+/* quiz */
+.questionClass{
+  background-color: #282c34;
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding:  16px;
+  margin: 10px auto;
+  min-width: 400px;
+  max-width: 900px;
+  text-align: center;
+  color: white;
+}
+
+.button-overall{
+  column-count: 2;
+  padding: 20px 150px;
+}
+
+.normal-button{
+  background-color: white;
+  width: 280px;
+  height: 80px;
+  padding: 8px;
+  margin: 24px;
+  color: orange;
+  font-weight: bolder;
+  font-size: larger;
+  border-radius: 10px;
+}
+
+.normal-button:hover{
+  transform: scale(1.1);
+  transition: transform 200ms ease-in-out;
+  cursor:pointer;
+  background-color: #11fd73;
+  color: white;
+}
+
+.clicked-button {
+  background-color: #11fd73;
+  border: none;
+  color: #000000;
+}
+
+
+.loading{
+  margin-top: 50%;
+  font-size: large;
+  color: white;
 }
