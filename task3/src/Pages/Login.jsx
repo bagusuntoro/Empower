@@ -4,6 +4,7 @@ import { Button, Form, Input } from 'antd';
 
 // components
 import { TopNavigation } from '../components/header/TopNavigation'
+import Head from '../components/Head'
 
 export const Login = () => {
     const auth = useContext(AuthContext)
@@ -12,19 +13,8 @@ export const Login = () => {
     const inputRef = useRef('')
 
     const handleSubmit = (e) => {
-        // e.preventDefault()
         console.log(e)
-        // alert('send :' + inputRef.current.value)
     }
-
-    const Head = () => {
-        const auth = useContext(AuthContext)
-        console.log(auth)
-        return (
-            <h1>{auth.email ? 'Login' : 'Wait...'}</h1>
-        )
-    }
-
 
     return (
         <>
