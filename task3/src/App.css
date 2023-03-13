@@ -48,13 +48,14 @@ li a:hover:not(.active) {
 
 
 .template {
+  margin-top: -20px;
   width: 1000px;
   height: 350px;
   background-color: #fff;
 }
 
 .form {
-  padding-top: 30px;
+  /* padding-top: 30px; */
   width: 300px;
   margin: auto;
 }
@@ -63,6 +64,11 @@ li a:hover:not(.active) {
   display: flex;
 }
 
+.quizbg {
+  background-color: #fff;
+  width: 900px;
+  margin: auto;
+}
 
 
 @keyframes logo-spin {
