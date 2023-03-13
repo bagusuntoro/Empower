@@ -6,27 +6,11 @@ import { Button, Form, Input } from 'antd';
 import { TopNavigation } from '../components/header/TopNavigation'
 import { supabase } from "../configs/supabase";
 import { useNavigate } from "react-router";
+import Head from '../components/Head'
 
 export const Register = () => {
   const auth = useContext(AuthContext)
 
-  // const [input, setInput] = useState('')
-  // const inputRef = useRef('')
-
-  // const handleSubmit = (e) => {
-  //   // e.preventDefault()
-  //   console.log(e)
-  //   // alert('send :' + inputRef.current.value)
-  // }
-
-
-  const Head = () => {
-    const auth = useContext(AuthContext)
-    console.log(auth)
-    return (
-      <h1>{auth.email ? 'Register' : 'Wait...'}</h1>
-    )
-  }
 
   const navigate = useNavigate()
 
@@ -40,10 +24,6 @@ export const Register = () => {
       navigate('/login')
     }
   }
-
-
-
-
 
   return (
     <>
