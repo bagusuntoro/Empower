@@ -1,0 +1,15 @@
+.container{
+    height: 600px;
+    width: 900px;
+    margin: auto;
+    margin-top: -22px;
+    background-color: #e991f191;
+    padding-left: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #e0e0e0;
+}
+
+h1{
+    padding-top: 20px;
+    text-align: center;
+}
